@@ -1,0 +1,218 @@
+\documentclass[paper=letter,fontsize=11pt]{scrartcl} % KOMA-article class
+							
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[protrusion=true,expansion=true]{microtype}
+\usepackage{amsmath,amsfonts,amsthm}     % Math packages
+\usepackage{graphicx}                    % Enable pdflatex
+\usepackage[svgnames]{xcolor}            % Colors by their 'svgnames'
+\usepackage{geometry}
+	%\textheight=700px                    % Saving trees ;-)
+%\usepackage{url}
+\usepackage[colorlinks=true,
+linkcolor=blue,
+urlcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{etaremune}
+\usepackage{wrapfig}
+
+\usepackage{attachfile}
+
+\frenchspacing              % Better looking spacings after periods
+\pagestyle{empty}           % No pagenumbers/headers/footers
+
+%\addtolength{\voffset}{-40pt}
+%\addtolength{\textheight}{20pt}
+
+\setlength\topmargin{0pt}
+\addtolength\topmargin{-\headheight}
+\addtolength\topmargin{-\headsep}
+\setlength\oddsidemargin{0pt}
+\setlength\textwidth{\paperwidth}
+\addtolength\textwidth{-2in}
+\setlength\textheight{\paperheight}
+%\addtolength\textheight{-3in}
+\addtolength\textheight{-2in}
+\usepackage{layout}
+
+%%% Custom sectioning}{sectsty package)
+%%% ------------------------------------------------------------
+\usepackage{sectsty}
+
+\sectionfont{%			            % Change font of \section command
+	\usefont{OT1}{phv}{b}{n}%		% bch-b-n: CharterBT-Bold font
+	\sectionrule{0pt}{0pt}{-5pt}{3pt}}
+
+%%% Macros
+%%% ------------------------------------------------------------
+\newlength{\spacebox}
+\settowidth{\spacebox}{8888888888}			% Box to align text
+\newcommand{\sepspace}{\vspace*{1em}}		% Vertical space macro
+
+\newcommand{\MyName}[1]{ % Name
+		\Huge \usefont{OT1}{phv}{b}{n} \hfill #1
+		\par \normalsize \normalfont}
+		
+\newcommand{\MySlogan}[1]{ % Slogan}{optional)
+		\large \usefont{OT1}{phv}{m}{n}\hfill \textit{#1}
+		\par \normalsize \normalfont}
+
+\newcommand{\NewPart}[2]{\section*{\uppercase{#1} #2}}
+
+\newcommand{\PersonalEntry}[2]{
+		\noindent\hangindent=2em\hangafter=0 % Indentation
+		\parbox{\spacebox}{        % Box to align text
+		\textit{#1}}		       % Entry name}{birth, address, etc.)
+		\hspace{1.5em} #2 \par}    % Entry value
+
+\newcommand{\SkillsEntry}[2]{      % Same as \PersonalEntry
+		\noindent\hangindent=2em\hangafter=0 % Indentation
+		\parbox{\spacebox}{        % Box to align text
+		\textit{#1}}			   % Entry name}{birth, address, etc.)
+		\hspace{1.5em} #2 \par}    % Entry value	
+		
+\newcommand{\EducationEntry}[4]{
+		\noindent \textbf{#1} \hfill      % Study
+		\colorbox{White}{%
+			\parbox{6em}{%
+			\hfill\color{Black}#2}} \par  % Duration
+		\noindent \textit{#3} \par        % School
+		\noindent\hangindent=2em\hangafter=0 \small #4 % Description
+		\normalsize \par}
+
+\newcommand{\WorkEntry}[4]{				  % Same as \EducationEntry
+		\noindent \textbf{#1} \hfill      % Jobname
+		\colorbox{White}{\color{White}#2} \par  % Duration
+		\noindent \textit{#3} \par              % Company
+		\noindent\hangindent=2em\hangafter=0 \small #4 % Description
+		\normalsize \par}
+
+\newcommand{\PaperEntry}[4]{
+		\noindent #1, ``{#2}", In \textit{#3}, #4.} %\href{#5}
+
+\newcommand{\ArxivEntry}[3]{
+		\noindent #1, ``\href{http://arxiv.org/abs/#3}{#2}", \textit{{cond-mat/}#3}.}
+        
+\newcommand{\BookEntry}[4]{
+		\noindent #1, ``\href{#3}{#4}", \textit{#3}.}
+        
+\newcommand{\FundingEntry}[5]{
+        \noindent #1, ``#2", \$#3 (#4, #5).}
+
+\newcommand{\TalkEntry}[4]{
+		\noindent #1, #2, #3 #4}
+
+\newcommand{\ThesisEntry}[5]{
+		\noindent #1 -- #2 #3 ``#4" \textit{#5}}
+
+\newcommand{\CourseEntry}[3]{
+		\noindent \item{#1: \textbf{#2} \\ #3}}
+
+%%% Begin Document
+%%% ------------------------------------------------------------
+\begin{document}
+
+%\layout
+
+% you can upload a photo and include it here...
+%\begin{wrapfigure}{l}{0.5\textwidth}
+%	\vspace*{-2em}
+%		\includegraphics[width=0.15\textwidth]{Appelbaum.JPG}
+%\end{wrapfigure}
+
+\MyName{Weixin Zhang}
+\MySlogan{Curriculum Vit\ae} %(\today)}
+
+\sepspace
+
+%%% Personal details
+%%% ------------------------------------------------------------
+\NewPart{}{}
+
+\PersonalEntry{Address}{Room 430, Chow Yei Ching Building, The University of Hong Kong}
+\PersonalEntry{Mail}{\href{mailto:zhangweixinxd@gmail.com}{zhangweixinxd@gmail.com}}
+\PersonalEntry{Website}{\href{http://wxzh.github.io}{http://wxzh.github.io}}
+
+
+\NewPart{Research Interests}{}
+I do research on the area of programming languages with a focus on modularity and DSLs.
+
+
+
+
+%%% Education
+%%% ------------------------------------------------------------
+\NewPart{Education}{}
+\EducationEntry{PhD. Computer Science}{2017-present}{The University of Hong Kong}{Supervisor: Bruno C. d. S. Oliveira}
+\EducationEntry{MPhil. Computer Science}{2014-2016}{The University of Hong Kong}{Supervisor: Bruno C. d. S. Oliveira\\ Co-supervisor: Francis C. M. Lau\\
+Thesis: \textit{Extensible Domain-Specific Languages in Object-Oriented Programming}}
+\sepspace
+
+\EducationEntry{BEng. Software Engineering}{2010-2014}{Xidian University}{}
+
+%%% Work experience
+%%% ------------------------------------------------------------
+
+\NewPart{Publications}{}%{\href{http://scholar.google.com/citations?hl=en&user=1z6xR14AAAAJ}{[statistics]}\href{http://arxiv.org/find/cond-mat/1/au:+Appelbaum_I/0/1/0/all/0/1}{[arXiv]}}
+
+\begin{etaremune}
+
+\item \PaperEntry{\textbf{Weixin Zhang}, Bruno C. d. S. Oliveira}{Shallow EDSLs
+    and Object-Oriented Programming: Beyond Simple Compositionality}{Volume 3,
+    Issue 3 of The Art,
+    Science, and Engineering of Programming}{2019}{ \textbf{Editor's Choice Award!}}
+
+\item \PaperEntry{\textbf{Weixin Zhang}, Bruno C. d. S. Oliveira}{Pattern
+    Matching in an Open World}{GPCE}{2018}
+
+\item \PaperEntry{\textbf{Weixin Zhang}, Bruno C. d. S. Oliveira}{EVF: An Extensible and
+    Expressive Visitor Framework for Programming Language Reuse}{ECOOP}{2017}
+
+\item \PaperEntry{Tomas Tauber, Xuan Bi, Zhiyuan Shi, \textbf{Weixin Zhang}, Huang Li, Zhenrui Zhang, Bruno C. d. S. Oliveira}{Memory-efficient Tail Calls in the JVM with Imperative Functional Objects}{APLAS}{2015}
+\end{etaremune}
+
+
+%\item \PaperEntry{{\bf Weixin Zhang}, Bruno C. d. S. Oliveira}{Shallow EDSLs and
+%    Object-Oriented Programming (Functional Pearl)}{Sumitted to ICFP}{}{}{2017}{}
+
+%\NewPart{Pending manuscripts}{\href{http://arxiv.org/find/cond-mat/1/au:+Appelbaum_I/0/1/0/all/0/1}{[arxiv]}}
+%\begin{itemize}
+%\item \ArxivEntry{J. Li and \underline{I. Appelbaum}}{D$^-$ donor spin coupling to conduction electrons in silicon}{1308.5621}
+%\end{itemize}
+
+\NewPart{Services}{}
+\begin{itemize}
+\item External reviewer for ECOOP 2019, ICFP 2019, APLAS 2017, GPCE 2017, SLE
+  2016, Scala 2015
+\item Student volunteer for APSys 2016, <Programming> 2019
+\end{itemize}
+
+\NewPart{Experience}{}
+
+\EducationEntry{Research Assistant}{2015-2016}{The University of Hong Kong}{}
+\EducationEntry{Teaching Assistant}{}{The University of Hong Kong}
+{\begin{itemize}
+\item{COMP3354: Statistical Learning, 2019}
+\item{COMP7506: Smart Phone Apps Development, 2017, 2018}
+\item{COMP3258: Fuctional Programming, 2015}
+\item{COMP2123: Programming Technologies and Tools, 2015}
+\end{itemize}}
+\sepspace
+%\EducationEntry{Visiting Scholar}{Spring 2013}{Harvard University}{\begin{itemize}\item{Research on Majorana fermion detection during sabbatical semester with Prof. A. Yacoby}\end{itemize}}
+%%% Papers
+%%% ------------------------------------------------------------
+
+\NewPart{Awards}{}
+\begin{itemize}
+\item Editor's Choice Award for the paper ``Shallow EDSLs and Object-Oriented
+  Programming: Beyond Simple Compositionality'', 2019
+\item Scholarship for SPLASH, 2018
+\item HKU Postgraduate Scholarship, 2017-present
+\item Nominee for the \emph{Li Ka Shing Prizes} and the \emph{Awards for Outstanding Research
+  Postgraduate Student}, 2016-2017
+\item Scholarship for PLMW@ICFP, 2016
+\end{itemize}
+
+
+
+\end{document}
