@@ -8,5 +8,5 @@ redirect_from:
   - /about.html
 ---
 
-Hi there! I am Weixin Zhang, PhD student at the University of Hong Kong. 
+Hi there! I am Weixin Zhang, a PhD student at the University of Hong Kong. 
 I do research on programming languages with a focus on modularity and DSLs.
